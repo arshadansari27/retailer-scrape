@@ -1,0 +1,60 @@
+
+/* Returns whether the given document is Product Page (1), Listing Page (0) or Dont care (-1)
+int getPageType(String url, Document document) { return -1; }
+
+
+String getRetailerTitle();
+String getRetailerDescription();
+
+
+/* if listing page */
+/* All the product urls in listing page */
+public List<String> getProductUrls();
+public List<String> extractCategory(Document page, String processUrl);
+
+/* if product page $/
+	public String getGender();
+
+	public String getAgeGroup();
+
+    public String getBrand();
+
+    public String getCategory();
+
+    public String getProductType();
+
+    public List<HashMap<String, Object>> getSkus();
+	/* HashMap for SKU */
+	/* color: String, color_code: String, size: String, size_code: String, price: String, discount: String, swatch: String, images: List<String>, available: Boolean */
+	/* Example: 
+	HashMap<String, Object> data = new HashMap<>();
+	Boolean b = false;
+	List<String> x = new ArrayList<>();
+	x.add("12");
+	data.put("W", "some string");
+	data.put("X", b);
+	data.put("Y", x);
+
+    */
+
+    public List<String> getImages();
+
+    public String getTitle();
+
+    public String getGlobalImage();
+
+    public String getURL();
+
+    public String getSmallDescription();
+
+    public String getLongDescription();
+
+    public String getPrice();
+
+    public String getDiscountPrice();
+
+    public String getCurrency(); // $, check if it really is $
+
+    public boolean isAvailable();
+
+    public String getProductId();
