@@ -15,26 +15,36 @@ public class Task2 {
 		HashMap<String, String> hm = new HashMap<String, String>(); 
 		
 		try{    //collections/shirts-b/products/patrolshirtteal
-			    doc=Jsoup.connect("http://cadetusa.com/collections/shirts-b/products/patrolshirtteal").get();   // Enter urls related to cadetusa.com           
+			    doc=Jsoup.connect("http://cadetusa.com").get();   // Enter urls related to cadetusa.com           
 			    String title=doc.title();                                   
 			    hm.put("title",title);
-				System.out.println("Title of the page         : "+hm.get("title"));   //printing title of current web page
+				System.out.println("Title of the page         : "+hm.get("title")+"\n");   //printing title of current web page
 				try{
 						Elements category = doc.select("h1[class]");						//extracting category of clothing selected
+						if(category.text().isEmpty()==false){
 						hm.put("category",category.text());						
 						System.out.println("\nCategory Selected         : "+hm.get("category")+"\n");
 						}
+						else
+							System.out.println("Please select a Category\n");     
+				   		
+				}
 				catch(NullPointerException ne){
-						System.out.println("\nPlease select a category\n");
+						System.out.println("");
 				}
 			
 			   try{
 				   		Elements type = doc.select("h4.title");			// Extracting all the choices available 	   		
-				   		System.out.println("Types available :\n");
+				   		if(type.text().isEmpty()==false){
+				   		System.out.println("Products available here :\n");
 				   		for(Element t : type){
 				   			hm.put("type",t.text());
 				   		System.out.println("-> "+hm.get("type"));     
 				   		}				   		
+				   		}
+				   		else
+				   			System.out.println("This is the only type available\n");     
+				   		
 				   		}
 			   catch(NullPointerException ne){
 				   		System.out.print("");	
